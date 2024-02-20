@@ -1,10 +1,21 @@
 import Button from "./components/Button";
-import Container from "./components/Container";
+import Form from "./components/Form";
+import Input from "./components/Input";
+import React from 'react'
 
 function App() {
+  function handleSave(data: unknown) {
+    const extractedData = data as { name: string, id: number }
+  }
   return (
     <main>
-      <Container as={'div'}><Container as={Button}>Click me!</Container></Container>
+      <Form onSave={handleSave}>
+        <Input label="Name" id="name" type="text" />
+        <Input label="Age" id="age" type="number" />
+        <p>
+          <Button>Click me!</Button>
+        </p>
+      </Form>
     </main>
   )
 }
